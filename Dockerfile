@@ -12,7 +12,8 @@ RUN apt-get update \
       \
       libusb-dev libacl1-dev libcap-dev libc6-dev-i386 lib32ncurses5-dev \
       lib32stdc++6 libglib2.0-dev libattr1-dev libncurses5-dev libreadline-dev \
-      libstring-crc32-perl zlib1g-dev
+      libstring-crc32-perl zlib1g-dev \
+      bc
 
 RUN useradd freetz \
  && mkdir -p /freetz/images \
