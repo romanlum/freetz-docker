@@ -36,12 +36,11 @@ build() {
   umask 0022
   svn checkout "http://svn.freetz.org/$rev" /freetz
 
-  echo "applying patches.."
-  for p in /patches/*.patch
-  do
-   [ -f "$p" ] || continue
-   echo "Apply $p"
-   patch -p1 < "$p"
+  echo "apply patches..."
+  for p in /patches/*.patch; do
+    [ -f "$p" ] || continue
+    echo "  applying $p"
+    patch -p1 < "$p"
   done
 
   if test -e /.config; then
