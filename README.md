@@ -13,7 +13,12 @@ To build images you either can interactively use the `menuconfig` or a configura
 $ docker run --rm -it -v $PWD/images:/freetz/images mtneug/freetz
 
 # Build with predefined .config
-$ docker run --rm -it -v $PWD/images:/freetz/images -v $PWD/config:/.config mtneug/freetz
+$ docker run --rm -it -v $PWD/images:/freetz/images -v $PWD/config:/config/.config mtneug/freetz
+
+# Build with predefined .config in windows conftainer
+# Windows container cannot map single files, only directories
+# configDir has to contain a .config file
+$ docker run --rm -it -v $PWD/images:/freetz/images -v $PWD/configDir:/config/ mtneug/freetz
 
 # Build with patches
 # put your .patch files into $PWD/patches

@@ -43,9 +43,9 @@ build() {
     patch -p1 < "$p"
   done
 
-  if test -e /.config; then
+  if test -e /config/.config; then
     echo "found .config file"
-    cp /.config .
+    cp /config/.config .
     make oldconfig
   fi
 
