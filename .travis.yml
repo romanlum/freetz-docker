@@ -1,5 +1,5 @@
+language: minimal
 sudo: required
-dist: trusty
 
 services:
   - docker
@@ -7,14 +7,15 @@ services:
 env:
   - FREETZ_CONFIG=type-7490
 
+addons:
+  apt:
+    packages:
+      - shellcheck
+
 before_install:
   - docker info
-
-  - echo "deb http://archive.ubuntu.com/ubuntu/ trusty-backports main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list
-  - sudo apt-get -qq update
-  - sudo apt-get -qq install shellcheck
   - shellcheck --version
 install: make build
 script:
   - make lint
-  - docker run --rm -it -v $PWD/testdata/$FREETZ_CONFIG:/.config mtneug/freetz build trunk --no-menuconfig
+  - docker run --rm -it -v $PWD/testdata/$FREETZ_CONFIG:/.config mtneug/freetz build master --no-menuconfig
