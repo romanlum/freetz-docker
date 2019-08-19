@@ -29,7 +29,7 @@ There are also some other commands:
 ```sh
 $ docker run --rm mtneug/freetz help
 Usage:
-  build [branch]          Builds a Freetz image from [branch]
+  build [repo] [branch]   Builds a Freetz image from [repo] and [branch]
     --no-menuconfig         Do not start menuconfig
                             This is only possible if there already
                             exists a .config file in the root directory.

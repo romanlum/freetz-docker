@@ -28,4 +28,4 @@ VOLUME /freetz/images
 
 COPY docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["build", "master"]
+CMD ["build","https://github.com/Freetz/freetz","master"]

@@ -29,7 +29,9 @@ clean() {
 }
 
 build() {
-  test "$#" -ge 1 || error "no branch specified"
+  test "$#" -ge 2 || error "no repo and branch specified"
+  repo=$1
+  shift
   rev=$1
   shift
 
@@ -37,7 +39,7 @@ build() {
   # can't use clone as the directory could be non-empty
   cd /freetz
   git init
-  git remote add origin "https://github.com/Freetz/freetz.git"
+  git remote add origin $repo
   git fetch
   git checkout "$rev"
 
